@@ -43,13 +43,54 @@ function writePassword() {
         alert("Why even?");
         return;
       }
-      var pwGenerate = console.log(pwCriteria, pwLowercase, pwUppercase, pwNumber, pwSpecial);
+ 
 
 
 
   //generate password when all answers are answered
-  // password should either displayed in an alert or written on page.
+  var pwGenerate = function() {
+    //setting a charset for the characters
+    var lowerChar = "abcdefghijklmnopqrstuvwxyz";
+    var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var numberChar = "0123456789";
+    var specialChar = "!@#$%^&*()-=_+{}|[~`]:<>?,./";
 
+    //defining the condition of what the user has enter
+    if (pwLowercase) {
+      l = lowerChar;
+    }else{
+      l = "";
+    }
+
+    if (pwUppercase) {
+      u = upperChar;
+    }else{
+      u = "";
+    }
+
+    if (pwNumber) {
+      n = numberChar;
+    }else{
+      n = "";
+    }
+
+    if (pwSpecial) {
+      s = specialChar;
+    }else{
+      s = "";
+    }
+    //what the char result is going to be
+    var char = l + u + n + s;
+
+    var passwordLength = pwCriteria;
+    var password = "";
+
+    for (var i = 0; i <= passwordLength; i++) {
+
+    }
+  }
+  // password should either displayed in an alert or written on page.
+  pwGenerate();
 
 
 
