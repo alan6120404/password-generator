@@ -1,7 +1,5 @@
 // Assignment code here
 
-//var passwordInfo = {
-  Letters: 
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -19,7 +17,8 @@ function writePassword() {
   // number only; so if enter integer proceed with function, else strings prompt error, return; between 8 and 128
       if (pwCriteria >= 8 && pwCriteria <= 128) {
         console.log(pwCriteria);
-        return pwCriteria;
+        var pwLowercase = window.confirm("do you wish to include lowercase?");
+        
       }else if (pwCriteria === "" || pwCriteria === null){
         alert("You need to provide an answer! Please try again.");
         return writePassword();
@@ -31,9 +30,23 @@ function writePassword() {
         return writePassword();
       }
   
-
   // prompt = do you wish to include lowercase, uppercase, numeric, and/or special characters.
-  // at least one character type should be created
+
+// if user wants uppercase true/false
+      var pwUppercase = window.confirm("do you wish to include uppercase?");
+// if user wants numbers true/false
+      var pwNumber = window.confirm("do you wish to include numbers?");
+// if user wants special character true/false
+      var pwSpecial = window.confirm("do you wish to include special characters?");
+// at least one character type should be created
+      if (pwLowercase === false && pwUppercase === false && pwNumber === false && pwSpecial === false) {
+        alert("Why even?");
+        return;
+      }
+      var pwGenerate = console.log(pwCriteria, pwLowercase, pwUppercase, pwNumber, pwSpecial);
+
+
+
   //generate password when all answers are answered
   // password should either displayed in an alert or written on page.
 
@@ -45,6 +58,16 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+
+
+//var passwordInfo = {
+//  letters: pwCriteria(),
+//  lowercase: pwLowercase(),
+//  uppercase: pwUppercase(),
+//  number: pwNumber(),
+//  special: pwSpecial(),
+//};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
