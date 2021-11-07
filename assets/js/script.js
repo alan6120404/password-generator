@@ -84,31 +84,24 @@ function writePassword() {
 
     var passwordLength = pwCriteria;
     var password = "";
-
-    for (var i = 0; i <= passwordLength; i++) {
-
+    // setting a for loop for the password generate; the length of the password should be shorter than the passwordLength
+    for (var i = 0; i < passwordLength; i++) {
+    // the random number should be a whole number
+    // the random number should include all the char character that was inputted by the user
+      var randomNumber = Math.floor(Math.random() * char.length);
+    // extract individual strings by using substring
+    //setting start and end to variable so it jumps around
+      password += char.substring(randomNumber, randomNumber + 1);
     }
+    console.log(password);
+    passwordText.value = password;
   }
   // password should either displayed in an alert or written on page.
   pwGenerate();
-
-
-
-
-
-  passwordText.value = password;
-
 }
 
 
 
-//var passwordInfo = {
-//  letters: pwCriteria(),
-//  lowercase: pwLowercase(),
-//  uppercase: pwUppercase(),
-//  number: pwNumber(),
-//  special: pwSpecial(),
-//};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
